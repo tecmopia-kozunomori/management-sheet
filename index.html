@@ -23,9 +23,7 @@
             --text-sub: rgba(255, 255, 255, 0.66);
             --text-muted: rgba(255, 255, 255, 0.44);
 
-            --card-bg: rgba(255, 255, 255, 0.09);
             --card-border: rgba(255, 255, 255, 0.13);
-            --card-hover: rgba(255, 255, 255, 0.14);
 
             --pink: #ff4f9a;
             --cyan: #32d9ff;
@@ -49,7 +47,6 @@
         body {
             min-height: 100vh;
             margin: 0;
-            padding: 0;
 
             font-family:
                 "Noto Sans JP",
@@ -59,6 +56,7 @@
                 sans-serif;
 
             color: var(--text-main);
+
             background:
                 radial-gradient(
                     circle at 15% 10%,
@@ -91,24 +89,30 @@
             content: "";
             position: fixed;
             z-index: -1;
+
             border-radius: 50%;
             filter: blur(30px);
+
             pointer-events: none;
         }
 
         body::before {
             top: -100px;
             left: -120px;
+
             width: 320px;
             height: 320px;
+
             background: rgba(255, 79, 154, 0.13);
         }
 
         body::after {
             right: -120px;
             bottom: -140px;
+
             width: 380px;
             height: 380px;
+
             background: rgba(50, 217, 255, 0.1);
         }
 
@@ -133,8 +137,9 @@
 
         .header {
             position: relative;
+
             margin-bottom: 32px;
-            padding: 34px 30px 30px;
+            padding: 32px 30px 30px;
 
             text-align: center;
 
@@ -149,6 +154,7 @@
             border-radius: 28px;
 
             box-shadow: var(--shadow);
+
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
 
@@ -157,26 +163,70 @@
 
         .header::before {
             content: "";
+
             position: absolute;
             top: 0;
             left: 12%;
+
             width: 76%;
             height: 2px;
 
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--pink),
-                var(--cyan),
-                transparent
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--pink),
+                    var(--cyan),
+                    transparent
+                );
 
             box-shadow:
                 0 0 14px rgba(255, 79, 154, 0.7),
                 0 0 18px rgba(50, 217, 255, 0.5);
         }
 
+        /* テクモピアロゴ */
+
+        .header-logo {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 22px;
+        }
+
+        .header-logo img {
+            display: block;
+
+            width: min(100%, 320px);
+            max-height: 110px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35))
+                drop-shadow(0 0 14px rgba(255, 79, 154, 0.28));
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .header-logo img:hover {
+            transform: scale(1.03);
+
+            filter:
+                drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 0 20px rgba(255, 79, 154, 0.45));
+        }
+
         .header-badge {
+            position: relative;
+            z-index: 1;
+
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -184,11 +234,11 @@
             margin-bottom: 15px;
             padding: 7px 13px;
 
+            color: rgba(255, 255, 255, 0.82);
+
             font-size: 0.73rem;
             font-weight: 700;
             letter-spacing: 0.12em;
-
-            color: rgba(255, 255, 255, 0.82);
 
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -208,6 +258,9 @@
         }
 
         .header-title {
+            position: relative;
+            z-index: 1;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -246,9 +299,13 @@
         }
 
         .header-description {
+            position: relative;
+            z-index: 1;
+
             margin: 12px 0 0;
 
             color: var(--text-sub);
+
             font-size: 0.93rem;
             line-height: 1.8;
         }
@@ -276,6 +333,7 @@
 
         .section-count {
             color: var(--text-muted);
+
             font-size: 0.75rem;
             font-weight: 600;
         }
@@ -295,6 +353,7 @@
             --card-color-rgb: 255, 79, 154;
 
             position: relative;
+
             display: grid;
             grid-template-columns: auto 1fr auto;
             align-items: center;
@@ -335,6 +394,7 @@
 
         .link-card::before {
             content: "";
+
             position: absolute;
             top: 16px;
             bottom: 16px;
@@ -352,6 +412,7 @@
 
         .link-card::after {
             content: "";
+
             position: absolute;
             top: -80px;
             right: -85px;
@@ -450,12 +511,14 @@
         .card-icon {
             font-size: 1.85rem;
             line-height: 1;
+
             filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.22));
         }
 
         .card-content {
             position: relative;
             z-index: 1;
+
             min-width: 0;
         }
 
@@ -467,6 +530,7 @@
             margin-bottom: 6px;
 
             color: var(--card-color);
+
             font-size: 0.67rem;
             font-weight: 700;
             letter-spacing: 0.12em;
@@ -474,13 +538,15 @@
 
         .card-category::before {
             content: "";
+
             width: 12px;
             height: 2px;
 
             background: var(--card-color);
             border-radius: 99px;
 
-            box-shadow: 0 0 6px rgba(var(--card-color-rgb), 0.75);
+            box-shadow:
+                0 0 6px rgba(var(--card-color-rgb), 0.75);
         }
 
         .card-title {
@@ -495,6 +561,7 @@
             margin: 5px 0 0;
 
             color: var(--text-sub);
+
             font-size: 0.79rem;
             line-height: 1.65;
         }
@@ -510,6 +577,7 @@
             height: 39px;
 
             color: rgba(255, 255, 255, 0.65);
+
             font-size: 1.25rem;
 
             background: rgba(255, 255, 255, 0.07);
@@ -526,8 +594,10 @@
         .link-card:hover .card-arrow,
         .link-card:focus-visible .card-arrow {
             color: #ffffff;
+
             background: rgba(var(--card-color-rgb), 0.25);
             border-color: rgba(var(--card-color-rgb), 0.45);
+
             transform: translateX(4px);
         }
 
@@ -542,7 +612,9 @@
 
         .footer-text {
             margin: 0;
+
             color: var(--text-muted);
+
             font-size: 0.72rem;
             letter-spacing: 0.04em;
         }
@@ -563,6 +635,7 @@
                     "content content";
 
                 align-items: start;
+
                 min-height: 220px;
                 padding: 24px;
             }
@@ -597,8 +670,18 @@
 
             .header {
                 margin-bottom: 26px;
-                padding: 27px 18px 24px;
+                padding: 26px 18px 24px;
+
                 border-radius: 22px;
+            }
+
+            .header-logo {
+                margin-bottom: 18px;
+            }
+
+            .header-logo img {
+                width: min(100%, 245px);
+                max-height: 85px;
             }
 
             .header-title {
@@ -609,6 +692,7 @@
             .header-icon {
                 width: 45px;
                 height: 45px;
+
                 font-size: 1.45rem;
             }
 
@@ -618,14 +702,17 @@
 
             .link-card {
                 gap: 13px;
+
                 min-height: 108px;
                 padding: 18px 16px 18px 19px;
+
                 border-radius: 18px;
             }
 
             .card-icon-wrap {
                 width: 53px;
                 height: 53px;
+
                 border-radius: 15px;
             }
 
@@ -644,6 +731,7 @@
             .card-arrow {
                 width: 34px;
                 height: 34px;
+
                 font-size: 1.05rem;
             }
         }
@@ -666,6 +754,11 @@
         <div class="container">
 
             <header class="header">
+
+                <div class="header-logo">
+                    <img src="main.png" alt="TECMOPIA ロゴ">
+                </div>
+
                 <div class="header-badge">
                     <span class="status-dot"></span>
                     EVENT MANAGEMENT SYSTEM
@@ -679,9 +772,11 @@
                 <p class="header-description">
                     利用状況を確認するイベント管理ページを選択してください
                 </p>
+
             </header>
 
             <section aria-labelledby="management-title">
+
                 <div class="section-header">
                     <h2 class="section-title" id="management-title">
                         管理メニュー
@@ -694,7 +789,6 @@
 
                 <div class="link-list">
 
-                    <!-- 2階催事クーポン -->
                     <a
                         href="https://script.google.com/macros/s/AKfycbwSs8PhF2OVlTRL0lbMsdPkBOmbFJHrkhy6NAxRR2k7vsdXcuxqjNhesNn3vIkVfdXy/exec"
                         target="_blank"
@@ -707,7 +801,9 @@
                         </div>
 
                         <div class="card-content">
-                            <div class="card-category">EVENT COUPON</div>
+                            <div class="card-category">
+                                EVENT COUPON
+                            </div>
 
                             <h3 class="card-title">
                                 2階催事 クーポン利用状況
@@ -718,10 +814,11 @@
                             </p>
                         </div>
 
-                        <span class="card-arrow" aria-hidden="true">›</span>
+                        <span class="card-arrow" aria-hidden="true">
+                            ›
+                        </span>
                     </a>
 
-                    <!-- B1スタンプラリー -->
                     <a
                         href="https://script.google.com/macros/s/AKfycbxUISM6FR8sPPI4z1NNfi6pfdBNXFhWe994RkIacR_eguGfZu-iiU1cAXqiIDv3DzfDxQ/exec"
                         target="_blank"
@@ -734,7 +831,9 @@
                         </div>
 
                         <div class="card-content">
-                            <div class="card-category">STAMP RALLY</div>
+                            <div class="card-category">
+                                STAMP RALLY
+                            </div>
 
                             <h3 class="card-title">
                                 B1スタンプラリー 利用状況
@@ -745,10 +844,11 @@
                             </p>
                         </div>
 
-                        <span class="card-arrow" aria-hidden="true">›</span>
+                        <span class="card-arrow" aria-hidden="true">
+                            ›
+                        </span>
                     </a>
 
-                    <!-- 休日限定クーポン -->
                     <a
                         href="https://script.google.com/macros/s/AKfycbxiQzx74xrVGVX_3KF4tUyRQpwxDl4a7GnejkdQYyw0xgZmaPi6dZMqbbBItRe5s6wAfQ/exec?mode=view"
                         target="_blank"
@@ -761,7 +861,9 @@
                         </div>
 
                         <div class="card-content">
-                            <div class="card-category">HOLIDAY COUPON</div>
+                            <div class="card-category">
+                                HOLIDAY COUPON
+                            </div>
 
                             <h3 class="card-title">
                                 休日限定クーポン 利用状況
@@ -772,10 +874,11 @@
                             </p>
                         </div>
 
-                        <span class="card-arrow" aria-hidden="true">›</span>
+                        <span class="card-arrow" aria-hidden="true">
+                            ›
+                        </span>
                     </a>
 
-                    <!-- デジタルポイントカード -->
                     <a
                         href="https://script.google.com/macros/s/AKfycbylwS4uf_4lrOgpmmRi3qh8SASnLVwMGIxXe-yO3X1A0mwn2J9psLJheTty0ojumvJ1/exec"
                         target="_blank"
@@ -788,7 +891,9 @@
                         </div>
 
                         <div class="card-content">
-                            <div class="card-category">DIGITAL POINT</div>
+                            <div class="card-category">
+                                DIGITAL POINT
+                            </div>
 
                             <h3 class="card-title">
                                 デジタルポイントカード 利用管理
@@ -799,7 +904,9 @@
                             </p>
                         </div>
 
-                        <span class="card-arrow" aria-hidden="true">›</span>
+                        <span class="card-arrow" aria-hidden="true">
+                            ›
+                        </span>
                     </a>
 
                 </div>
@@ -815,4 +922,3 @@
     </main>
 </body>
 </html>
-```
